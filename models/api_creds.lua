@@ -1,6 +1,5 @@
 local Model = require("lapis.db.model").Model
 
--- Model for API credentials
 local ApiCreds = Model:extend("api_creds", {
   fields = {
     id = { type = "id", primary_key = true },
@@ -9,10 +8,8 @@ local ApiCreds = Model:extend("api_creds", {
   }
 })
 
--- Generate and store an authentication token for a user
 function ApiCreds:generate_token()
-  -- Simple random token for demonstration; use a more secure method in production
-  local token = tostring(math.random())
+  local token = tostring(math.random()) -- Use a secure method in production
   self:update({ token = token })
   return token
 end

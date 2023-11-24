@@ -24,20 +24,30 @@ A simple authorized_keys management system for Linux, written in Lapis!
      ```bash
      mysql -u root -p
      ```
-   - Create a new database for the application:
+   - Create a new database for the application and make it active:
      ```sql
      CREATE DATABASE locksmith;
+     USE locksmith;
      ```
-
-### Lapis Project Initialization
-
-1. **Create a New Lapis Project**
-   - Navigate to your desired project directory.
-   - Initialize a new Lapis project:
-     ```bash
-     lapis new --lua
+   - Create table user_keys:
+     ```sql
+     CREATE TABLE user_keys (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(255),
+       pubkey TEXT,
+       INDEX(username)
+     );
      ```
-
+   - Create table api_creds:
+     ```
+     CREATE TABLE api_creds (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(255) UNIQUE NOT NULL,
+       token TEXT,
+       INDEX(username)
+     );
+     ```
+   
 ### Configuration File Setup
 
 1. **Edit `config.lua` for MySQL**
