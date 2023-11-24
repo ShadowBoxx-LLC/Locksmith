@@ -1,8 +1,6 @@
 # Locksmith
 A simple authorized_keys management system for Linux, written in Lapis!
 
-# Environment Setup for "Locksmith"
-
 ## Installation and Configuration
 
 ### OpenResty and Lapis Installation
