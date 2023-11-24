@@ -1,2 +1,2 @@
 # Locksmith
-A simple authorized_keys management system for Linux
+A simple authorized_keys management system for Linux, written in Lapis!
