@@ -1,6 +1,7 @@
 local lapis = require("lapis")
 local api = require("controllers.api")
 local auth = require("controllers.auth")
+local manage_keys = require("controllers.manage_keys")
 
 local app = lapis.Application()
 app:enable("etlua")
@@ -8,9 +9,6 @@ app.layout = require "views.layout"
 
 app:include(api)
 app:include(auth)
-
-app:get("/", function(self)
-  return { render = "index" }
-end)
+app:include(manage_keys)
 
 return app
