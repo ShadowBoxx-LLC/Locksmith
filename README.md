@@ -9,9 +9,13 @@ A simple authorized_keys management system for Linux, written in Lapis!
    - Follow the installation instructions on the [OpenResty website](https://openresty.org/en/installation.html).
 
 2. **Install Lapis**
-   - Use LuaRocks to install Lapis:
+   - Use LuaRocks to install Lapis and bcrypt:
      ```bash
      luarocks install lapis
+     ```
+
+     ```bash
+     luarocks install bcrypt
      ```
 
 ### MySQL Database Setup
@@ -39,11 +43,20 @@ A simple authorized_keys management system for Linux, written in Lapis!
      );
      ```
    - Create table api_creds:
-     ```
+     ```sql
      CREATE TABLE api_creds (
        id INT AUTO_INCREMENT PRIMARY KEY,
        username VARCHAR(255) UNIQUE NOT NULL,
        token TEXT,
+       INDEX(username)
+     );
+     ```
+   - Create table auth_users:
+     ```sql
+     CREATE TABLE auth_users (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(255) UNIQUE NOT NULL,
+       password_hash VARCHAR(255) NOT NULL,
        INDEX(username)
      );
      ```

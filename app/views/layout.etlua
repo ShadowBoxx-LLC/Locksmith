@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title or "Locksmith" %></title>
+  <!-- Common stylesheets, scripts, etc. -->
+</head>
+<body>
+  <header>
+    <!-- Common header content -->
+  </header>
+
+  <main>
+    <%= content %>
+  </main>
+
+  <footer>
+    <!-- Common footer content -->
+  </footer>
+</body>
+</html>

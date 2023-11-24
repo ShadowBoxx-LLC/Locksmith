@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#TODO: Make these environment variables
-API_URL="<https://your-api-url.com>"
-API_TOKEN="<your_api_token>"
+API_URL="https://your-api-url.com"
+API_TOKEN="your_api_token"
 
 fetch_keys() {
     local username=$1

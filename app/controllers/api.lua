@@ -1,24 +1,6 @@
 local lapis = require("lapis")
-local models = require("models")
-local UserKeys = models.UserKeys
-local ApiCreds = models.ApiCreds
+local UserKeys = require("models").UserKeys
 local app = lapis.Application()
-
-local function validate_token(req)
-  local token = req.headers["Authorization"]
-  if not token then
-    return { status = 401, json = { error = "No token provided" } }
-  end
-
-  local cred = ApiCreds:find({ token = token })
-  if not cred then
-    return { status = 401, json = { error = "Invalid token" } }
-  end
-
-  req.current_user = cred
-end
-
-app:before_filter(validate_token)
 
 app:get("/users", function(self)
   local users = UserKeys:get_unique_users()

@@ -1,7 +1,7 @@
 local Model = require("lapis.db.model").Model
 local bcrypt = require("bcrypt")
 
-local ApiCreds = Model:extend("api_creds", {
+local AuthUser = Model:extend("auth_users", {
   fields = {
     id = { type = "id", primary_key = true },
     username = { type = "text", unique = true },
@@ -9,7 +9,7 @@ local ApiCreds = Model:extend("api_creds", {
   }
 })
 
-function ApiCreds:create_user(username, password)
+function AuthUser:create_user(username, password)
   local password_hash = bcrypt.digest(password, 10)
   return self:create {
     username = username,
@@ -17,4 +17,4 @@ function ApiCreds:create_user(username, password)
   }
 end
 
-return ApiCreds
+return AuthUser
