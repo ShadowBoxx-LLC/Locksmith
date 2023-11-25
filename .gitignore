@@ -4,4 +4,5 @@ app/logs
 app/proxy_temp
 app/scgi_temp
 app/uwsgi_temp
+app/config.lua
 app/nginx.conf.compiled

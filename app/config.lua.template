@@ -1,0 +1,47 @@
+local config = require("lapis.config")
+
+-- Development configuration
+config("development", {
+  mysql = {
+    host = "127.0.0.1",
+    user = "root",
+    password = "yourpassword",
+    database = "locksmith"
+  },
+  secret = "your_secret_key_here",
+  -- Development-specific options
+  port = 8080,  -- Custom port for development
+  num_workers = 1,  -- Number of workers; can be less in development
+  code_cache = "off",  -- Disable code caching for easier debugging
+  logging = {
+    queries = true,  -- Log database queries for debugging
+    requests = false  -- Optional: set to true if request logging is needed
+  }
+})
+
+-- Production configuration
+config("production", {
+  mysql = {
+    host = "production_db_host",
+    user = "production_user",
+    password = "production_password",
+    database = "locksmith"
+  },
+  secret = "your_production_secret_key",
+  -- Production-specific options
+  port = 80,  -- Standard HTTP port
+  num_workers = 4,  -- Increase workers for production load
+  code_cache = "on",  -- Enable code caching for performance
+  logging = {
+    queries = false,  -- Typically, turn off query logging in production
+    requests = true   -- Enable request logging for monitoring
+  },
+  -- HTTPS configuration (if applicable)
+  ssl = {
+    port = 443,  -- Standard HTTPS port
+    key = "/path/to/ssl.key",
+    cert = "/path/to/ssl.cert"
+  }
+})
+
+-- Additional environments like 'testing' or 'staging' can be added similarly
