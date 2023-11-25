@@ -1,0 +1,10 @@
+<h1>Add User Key</h1>
+<form action="/add_key" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+
+  <label for="pubkey">Public Key:</label>
+  <textarea id="pubkey" name="pubkey" required></textarea>
+
+  <button type="submit">Add Key</button>
+</form>

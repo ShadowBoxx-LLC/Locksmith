@@ -1,7 +1,8 @@
 <h1>Welcome to Locksmith</h1>
-<% if not session.current_user then %>
-  <a href="/login">Login</a>
-<% else %>
-  <p>Welcome, <%= session.current_username %></p>
+<% if session.current_user then %>
+  <p>Hello, <%= session.current_username %></p>
+  <a href="/manage_keys">Manage Keys</a>
   <a href="/logout">Logout</a>
+<% else %>
+  <a href="/login">Login</a>
 <% end %>
