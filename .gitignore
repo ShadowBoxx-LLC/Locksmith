@@ -1,2 +1,7 @@
+app/client_body_temp
+app/fastcgi_temp
 app/logs
-nginx.conf.compiled
+app/proxy_temp
+app/scgi_temp
+app/uwsgi_temp
+app/nginx.conf.compiled
